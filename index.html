@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculator</title>
+  <style>
+    input { width: 50px; }
+    button { margin: 5px; }
+  </style>
+</head>
+<body>
+  <h1>Simple Calculator</h1>
+  <input id="a" type="number" placeholder="a">
+  <input id="b" type="number" placeholder="b">
+  <br />
+  <button onclick="calc('+')">+</button>
+  <button onclick="calc('-')">-</button>
+  <button onclick="calc('*')">*</button>
+  <button onclick="calc('/')">/</button>
+  <p id="result"></p>
+
+  <script>
+    function calc(op) {
+      const a = parseFloat(document.getElementById('a').value);
+      const b = parseFloat(document.getElementById('b').value);
+      let result = 'Invalid input';
+      if (!isNaN(a) && !isNaN(b)) {
+        if (op === '+') result = a + b;
+        if (op === '-') result = a - b;
+        if (op === '*') result = a * b;
+        if (op === '/') result = b !== 0 ? a / b : 'Error: divide by zero';
+      }
+      document.getElementById('result').innerText = `Result: ${result}`;
+    }
+  </script>
+</body>
+</html>
